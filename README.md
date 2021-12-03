@@ -1,4 +1,6 @@
-# x
+# webcam 
+
+This is a simple webpage, identifying available video resources and display their stream.
 
 ## Project setup
 ```
