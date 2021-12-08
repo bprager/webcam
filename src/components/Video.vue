@@ -6,7 +6,6 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-
 @Options({
   props: {
     msg: String,
@@ -15,18 +14,6 @@ import { Options, Vue } from "vue-class-component";
 export default class Video extends Vue {
   msg!: string;
 }
-
-function detectWebcam(callback: (b: boolean) => void) {
-  let md = navigator.mediaDevices;
-  if (!md || !md.enumerateDevices) return callback(false);
-  md.enumerateDevices().then((devices) => {
-    callback(devices.some((device) => "videoinput" === device.kind));
-  });
-}
-
-detectWebcam(function (hasWebcam: boolean) {
-  console.log("Webcam: " + (hasWebcam ? "yes" : "no"));
-});
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

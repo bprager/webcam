@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "declaration": true,
     "target": "esnext",
     "module": "esnext",
     "strict": true,
@@ -18,9 +19,8 @@
       "chai"
     ],
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"],
+      "@api/*": ["src/api/*"]
     },
     "lib": [
       "esnext",

@@ -11,7 +11,9 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
-    "vue-class-component": "^8.0.0-0"
+    "vue-class-component": "^8.0.0-0",
+    "vue-property-decorator": "^9.1.2",
+    "vuex-module-decorators": "^2.0.0"
   },
   "devDependencies": {
     "@types/chai": "^4.2.11",
