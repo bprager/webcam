@@ -3,7 +3,14 @@
     "ignorePaths": [],
     "dictionaryDefinitions": [],
     "dictionaries": [],
-    "words": [],
+    "words": [
+        "codeship",
+        "documentup",
+        "flowconfig",
+        "Gruntfile",
+        "Gulpfile",
+        "wercker"
+    ],
     "ignoreWords": [
         "browserslist"
     ],

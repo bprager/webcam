@@ -1,18 +1,17 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-  </div>
+  <div></div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import { Camera } from "../api/camera";
 @Options({
   props: {
-    msg: String,
+    camera: Camera,
   },
 })
 export default class Video extends Vue {
-  msg!: string;
+  camera?: Camera | null;
 }
 </script>
 
@@ -28,8 +27,5 @@ ul {
 li {
   display: inline-block;
   margin: 0 10px;
-}
-a {
-  color: #42b983;
 }
 </style>

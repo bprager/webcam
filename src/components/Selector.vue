@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <button @click="toggleShow" class="anchor">Select a camera</button>
     <div v-if="showMenu" class="menu">
       <div
@@ -11,6 +11,10 @@
         {{ camera.label }}
       </div>
     </div>
+    <div v-if="selectedCamera" class="display">
+      Current: {{ selectedCamera.label }}
+    </div>
+    <div v-else class="display">No camera selected.</div>
   </div>
 </template>
 
@@ -36,10 +40,10 @@ export default class Selector extends Vue {
   showMenu = false;
   toggleShow(): void {
     this.showMenu = !this.showMenu;
-    this.selectedCamera = this.cameras[0];
   }
   cameraClicked(camera: Camera): void {
     this.toggleShow();
+    this.selectedCamera = camera;
     this.onClick(camera);
   }
 }
@@ -61,8 +65,16 @@ li {
 a {
   color: #39c2d7;
 }
+
+.wrapper {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  width: 500px;
+}
+
 .anchor {
-  display: flex;
+  display: inline-block;
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
@@ -93,7 +105,15 @@ a {
   border-color: #008ace;
   cursor: pointer;
 }
-
+.display {
+  background-color: #fff;
+  display: inline-block;
+  flex-direction: column;
+  margin: 0.125rem 10px 0;
+  padding: 0 0;
+  position: absolute;
+  text-align: left;
+}
 .menu {
   background-color: #fff;
   background-clip: padding-box;
@@ -103,12 +123,14 @@ a {
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  float: left;
   font-size: 1rem;
   list-style: none;
   margin: 0.125rem 0 0;
   padding: 0.2rem 0;
   position: absolute;
   text-align: left;
+  width: 300;
 }
 
 .menu-item {
