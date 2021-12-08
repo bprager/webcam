@@ -1,5 +1,5 @@
 <template>
-  <Selector :on-click="changeCamera" :cameras="cameras" />
+  <Selector :on-click="changeCamera" :cameras="cameras" class="center" />
   <p>Camera selected: {{ activeCamera?.label }}</p>
 </template>
 
@@ -21,11 +21,8 @@ export default class App extends Vue {
     this.activeCamera = camera;
   }
   mounted(): void {
-    console.log("mounted ...");
     this.cameras = this.pool.findAll();
-    console.log("cameras: " + this.cameras);
     this.activeCamera = this.cameras[0];
-    console.log("active camera: " + this.activeCamera);
   }
 }
 </script>
@@ -36,7 +33,11 @@ export default class App extends Vue {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #263852;
+}
+.center {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
 }
 </style>
