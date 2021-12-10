@@ -1,16 +1,20 @@
 <template>
-  <Selector :on-click="changeCamera" :cameras="cameras" class="center" />
-  <p>Camera selected: {{ activeCamera?.label }}</p>
+  <!-- <Selector :on-click="changeCamera" :cameras="cameras" class="center" /> -->
+  <Video :camera="activeCamera" />
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import { Camera, Pool } from "./api/camera";
+import { Pool } from "./api/camera";
 import Selector from "./components/Selector.vue";
+import Video from "./components/Video.vue";
+
+type Camera = MediaDeviceInfo;
 
 @Options({
   components: {
     Selector,
+    Video,
   },
 })
 export default class App extends Vue {
@@ -21,7 +25,7 @@ export default class App extends Vue {
     this.activeCamera = camera;
   }
   mounted(): void {
-    this.cameras = this.pool.findAll();
+    this.cameras = this.pool.loadCameras();
     this.activeCamera = this.cameras[0];
   }
 }

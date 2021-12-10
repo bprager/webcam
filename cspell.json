@@ -9,6 +9,7 @@
         "flowconfig",
         "Gruntfile",
         "Gulpfile",
+        "playsinline",
         "wercker"
     ],
     "ignoreWords": [

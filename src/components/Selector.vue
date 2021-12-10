@@ -5,7 +5,7 @@
       <div
         class="menu-item"
         v-for="camera in cameras"
-        :key="camera.id"
+        :key="camera.deviceId"
         @click="cameraClicked(camera)"
       >
         {{ camera.label }}
@@ -20,7 +20,8 @@
 
 <script lang="ts">
 import { Vue, Options } from "vue-class-component";
-import { Camera } from "../api/camera";
+
+type Camera = MediaDeviceInfo;
 
 @Options({
   name: "Selector",
@@ -36,7 +37,7 @@ import { Camera } from "../api/camera";
 export default class Selector extends Vue {
   cameras!: Array<Camera>;
   onClick!: (camera: Camera) => void;
-  selectedCamera!: Camera;
+  selectedCamera: Camera | null | undefined = null;
   showMenu = false;
   toggleShow(): void {
     this.showMenu = !this.showMenu;
