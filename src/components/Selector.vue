@@ -21,8 +21,6 @@
 <script lang="ts">
 import { Vue, Options } from "vue-class-component";
 
-type Camera = MediaDeviceInfo;
-
 @Options({
   name: "Selector",
   props: {
@@ -35,14 +33,14 @@ type Camera = MediaDeviceInfo;
   },
 })
 export default class Selector extends Vue {
-  cameras!: Array<Camera>;
-  onClick!: (camera: Camera) => void;
-  selectedCamera: Camera | null | undefined = null;
+  cameras!: Array<MediaDeviceInfo>;
+  onClick!: (camera: MediaDeviceInfo) => void;
+  selectedCamera: MediaDeviceInfo | null | undefined = null;
   showMenu = false;
   toggleShow(): void {
     this.showMenu = !this.showMenu;
   }
-  cameraClicked(camera: Camera): void {
+  cameraClicked(camera: MediaDeviceInfo): void {
     this.toggleShow();
     this.selectedCamera = camera;
     this.onClick(camera);

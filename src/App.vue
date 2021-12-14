@@ -9,8 +9,6 @@ import { Pool } from "./api/camera";
 import Selector from "./components/Selector.vue";
 import Video from "./components/Video.vue";
 
-type Camera = MediaDeviceInfo;
-
 @Options({
   components: {
     Selector,
@@ -18,10 +16,11 @@ type Camera = MediaDeviceInfo;
   },
 })
 export default class App extends Vue {
-  cameras: Camera[] = [];
+  cameras: MediaDeviceInfo[] = [];
   pool: Pool = new Pool();
-  activeCamera: Camera | null = null;
-  changeCamera(camera: Camera): void {
+  activeCamera: MediaDeviceInfo | null = null;
+
+  changeCamera(camera: MediaDeviceInfo): void {
     this.activeCamera = camera;
   }
   mounted(): void {

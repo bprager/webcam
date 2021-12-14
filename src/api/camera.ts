@@ -5,7 +5,7 @@ export class Pool {
       for (let i = 0; i !== deviceInfos.length; ++i) {
         const deviceInfo = deviceInfos[i];
         if (deviceInfo.kind === "videoinput") {
-          // console.log("camera added: " + deviceInfo.label);
+          // console.log( "camera added: " + deviceInfo.label + ", id: " + deviceInfo.deviceId,);
           cameras.push(deviceInfo);
         }
       }
